@@ -82,7 +82,9 @@ public class Repository
 	
   public ArrayList<Group> getAllGroups()
   {
-    return new ArrayList<Group>(groups.values());
+    
+	return new ArrayList<Group>(groups.values());
+  
   }
 	
 
