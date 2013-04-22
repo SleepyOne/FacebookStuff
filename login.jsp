@@ -7,6 +7,7 @@
 
 <h1>Login</h1>
 
+<center>
 <form action="loginController.jsp" method=GET>
   Email: <input type=text size=20 name=email />
   <br/>
@@ -14,6 +15,7 @@
   <br/>
   <input type=submit value="Login" />
 </form>
+</center>
 
 </body>
 </html>
