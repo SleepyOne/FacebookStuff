@@ -82,9 +82,7 @@ public class Repository
 	
   public ArrayList<Group> getAllGroups()
   {
-    
-	return new ArrayList<Group>(groups.values());
-  
+    return new ArrayList<Group>(groups.values());
   }
 	
 
@@ -94,18 +92,26 @@ public class Repository
   }
 	
 	
-  public Event createNewEvent (String eventName, String eventDate, String eventTime, String eventDescription)
+  public Event createNewEvent (String name, String date, String time, String description, ID)
   {
-    Event event = new Event(eventName, eventDate, eventTime, eventDescription);
-    events.put(eventName, event);
+    Event event = new Event(name, date, time, description, ID);
+
+    events.put(ID, event);
 
     return event;
   }
 	
 	
-  public java.util.ArrayList<Event> getAllEvents()
+  public ArrayList<Event> getAllEvents()
   {
     return new ArrayList<Event>(events.values());
   }
 
+
+  public int getNumEvents()
+  {
+    return events.size();
+  }
 }
+
+

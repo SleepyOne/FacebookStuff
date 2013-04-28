@@ -19,7 +19,7 @@ public class User
     password = pw;
     birthday = bday;
     this.gender = gender;
-    profile = new Profile(birthday, gender);
+    profile = new Profile(this);
 
     friends = new ArrayList<User>();
     newsfeed = new ArrayList<WallPost>();

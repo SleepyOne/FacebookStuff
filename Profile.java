@@ -6,16 +6,15 @@ import java.util.ArrayList;
 public class Profile
 {
 
-  private String gender, birthday;
   private Wall wall;
   private ArrayList<String> hobbies;
   private ArrayList<String> friendRequests;
+  private User owner;
 
 
-  Profile (String bday, String gender)
+  Profile (User owner)
   {
-    birthday = bday;
-    this.gender = gender;
+    this.owner = owner;
     wall = new Wall();
 
     hobbies = new ArrayList<String>();

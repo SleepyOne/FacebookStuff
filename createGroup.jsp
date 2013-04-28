@@ -11,10 +11,10 @@
 
 <br/>
 <br/>
-<br/>
 
-<form action="group.jsp" method=GET>
+<form action="groupController.jsp" method=GET>
   Group name: <input type=text size=40 name=name />
+  <br/>
   <br/>
   Description: <input type=text size=150 name=description />
   <br/>

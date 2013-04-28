@@ -9,14 +9,16 @@
 
 <h1>Create Event</h1>
 
-<form action="event.jsp" method=GET>
+<form action="eventController.jsp" method=GET>
 
+<br/>
 Event Name: <input type=text size=40 name=name />
+<br/>
 <br/>
 Description: <input type=text size=150 name=description />
 <br/>
 <br/>
-<select name=month>
+Date: <select name=month>
   <option value=Jan>January </option>
   <option value=Feb>February </option>
   <option value=Mar>March </option>
@@ -65,7 +67,9 @@ Description: <input type=text size=150 name=description />
   <option value=31>31 </option>
 </select>
 
-<select name=time>
+<br/>
+<br/>
+Time: <select name=time>
   <option value=1>1 </option>
   <option value=2>2 </option>
   <option value=3>3 </option>
@@ -85,6 +89,7 @@ Description: <input type=text size=150 name=description />
   <option value=pm>pm </option>
 </select>
 
+<br/>
 <br/>
 
 <input type=submit value="Submit" />

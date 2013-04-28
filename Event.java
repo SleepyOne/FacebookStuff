@@ -8,14 +8,16 @@ public class Event {
   private String eventName, eventDate, eventTime, eventDescription;
   private Wall wall;
   private ArrayList<User> guestList;
+  private int eventID;
 
 
-  Event(String name, String date, String time, String description)
+  Event(String name, String date, String time, String description, int ID)
   {
     eventName = name;
     eventDate = date;
     eventTime = time;
     eventDescription = description;
+    eventID = ID;
 
     wall = new Wall();
     guestList = new ArrayList<User>();
