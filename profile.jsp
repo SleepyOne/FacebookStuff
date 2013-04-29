@@ -1,6 +1,7 @@
 
 <%@ page import="facebook.User" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="facebook.Profile" %>
 
 
 <html>
@@ -41,12 +42,13 @@
   <br/>
   <br/>
 
+<%
+  Profile curProfile = curUser.getProfile();
 
-<form action="addFriend.jsp" method=get>
+  //if (
 
-  <input type=submit name=addFriend value="Add Friend" />
+%>
 
-</form>
 
 
 <%
@@ -57,13 +59,21 @@
   <br/>
   <br/>
 
-  Hobbies:
+<b>Hobbies:</b>
+
+<form action="addHobby.jsp" method=get />
+
+  <input type=text size=20 name=hobby />
+  <input type=submit name=submit value="Add Hobby" />
+
+</form>
+
 <%
   ArrayList<String> hobbies = curUser.getProfile().getHobbies();
 
   for (int i = 0; i < hobbies.size(); i++)
   {
-    out.println(hobbies.get(i));
+    out.println(hobbies.get(i) + "<br/>");
   }
 %>
 

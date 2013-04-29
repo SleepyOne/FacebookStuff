@@ -4,7 +4,9 @@
 
 
 <%
-  User curUser = session.getParameter("user");
+  User curUser = (User) session.getAttribute("user");
 
   // Need to do a User friend to add = session.getParameter()
   // But what parameter would I get?
+
+%>

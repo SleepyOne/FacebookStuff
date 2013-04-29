@@ -158,7 +158,7 @@ Re-Enter Password: <input type=password size=20 name=password2 />
 <br/>
 <br/>
 
-<input type=submit value="Register" />
+<input type=submit name=submit value="Register" />
 
 </form>
 </center>

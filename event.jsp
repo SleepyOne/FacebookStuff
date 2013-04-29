@@ -26,8 +26,9 @@
 <%
   out.println("<h1>" + curEvent.getName() + "</h1>");
 
-  out.println("<h3>" + curEvent.getDescription() + "</h3>");
+  out.println("<font size=4>" + curEvent.getDescription() + "</font><br/><br/>");
 
+  out.println("<font size=4>" + curEvent.getDate() + " at " + curEvent.getTime()    + "</font>");
 
 %>
 
