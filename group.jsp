@@ -20,15 +20,16 @@
 <body>
 
 <br/>
-<br/>
 
 <center>
 <%
-  out.println("<h1>" + curGroup.getName() "</h1>");
+  out.println("<h1>" + curGroup.getName() + "</h1>");
+%>
 
+<br/>
 
-
-
+<%
+  out.println(curGroup.getDescription());
 %>
 
 </body>

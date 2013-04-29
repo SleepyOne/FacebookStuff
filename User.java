@@ -25,6 +25,12 @@ public class User
     newsfeed = new ArrayList<WallPost>();
   }
 
+
+  public Profile getProfile()
+  {
+    return profile;
+  }
+
 	
   public String getEmail()
   {
@@ -60,6 +66,18 @@ public class User
   {
     userName = name;
   }
+
+
+  public String getBirthday()
+  {
+    return birthday;
+  }
+
+
+  public String getGender()
+  {
+    return gender;
+  }
 	
 	
   public void makeWallPost(String text)
@@ -84,6 +102,12 @@ public class User
     {
       friends.remove(user);
     }
+  }
+
+
+  public ArrayList<User> getFriends()
+  {
+    return friends;
   }
 	
 	

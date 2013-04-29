@@ -5,13 +5,12 @@ import java.util.ArrayList;
 
 public class Event {
 
-  private String eventName, eventDate, eventTime, eventDescription;
+  private String eventName, eventDate, eventTime, eventDescription, eventID;
   private Wall wall;
   private ArrayList<User> guestList;
-  private int eventID;
 
 
-  Event(String name, String date, String time, String description, int ID)
+  Event(String name, String date, String time, String description, String ID)
   {
     eventName = name;
     eventDate = date;

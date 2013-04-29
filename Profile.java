@@ -10,6 +10,7 @@ public class Profile
   private ArrayList<String> hobbies;
   private ArrayList<String> friendRequests;
   private User owner;
+  private String picture;
 
 
   Profile (User owner)
@@ -19,18 +20,20 @@ public class Profile
 
     hobbies = new ArrayList<String>();
     friendRequests = new ArrayList<String>();
+
+    picture = null;
   }
 
 
-  public String getBirthday ()
+  public String getPicture()
   {
-    return birthday;
+    return picture;
   }
 
 
-  public String getGender ()
+  public void setPicture(String name)
   {
-    return gender;
+    picture = name;
   }
 
 

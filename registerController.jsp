@@ -8,7 +8,15 @@
   String password = request.getParameter("password");
   String password2 = request.getParameter("password2");
   String gender = request.getParameter("gender");
-  String birthday = request.getParameter("bday");
+  String day = request.getParameter("day");
+  String year = request.getParameter("year");
+  String month = request.getParameter("month");
+
+
+  String birthday = month.concat(" ");
+  birthday = birthday.concat(day);
+  birthday = birthday.concat(", ");
+  birthday = birthday.concat(year);
 
   User user = Repository.instance().getUser(email);
 

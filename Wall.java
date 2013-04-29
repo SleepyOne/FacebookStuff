@@ -32,10 +32,12 @@ public class Wall
 
   }
 
+
   private void save ()
   {
 
   }
+
 
   private void load ()
   {

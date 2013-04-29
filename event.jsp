@@ -24,9 +24,9 @@
 
 <center>
 <%
-  out.println("<h1>" + curEvent.getName() "</h1>");
+  out.println("<h1>" + curEvent.getName() + "</h1>");
 
-
+  out.println("<h3>" + curEvent.getDescription() + "</h3>");
 
 
 %>

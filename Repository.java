@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 
+
 public class Repository
 {
 
@@ -92,12 +93,11 @@ public class Repository
   }
 	
 	
-  public Event createNewEvent (String name, String date, String time, String description, ID)
+  public Event createNewEvent (String name, String date, String time, String description, String ID)
   {
     Event event = new Event(name, date, time, description, ID);
 
     events.put(ID, event);
-
     return event;
   }
 	

@@ -69,7 +69,7 @@ Date: <select name=month>
 
 <br/>
 <br/>
-Time: <select name=time>
+Time: <select name=hour>
   <option value=1>1 </option>
   <option value=2>2 </option>
   <option value=3>3 </option>
@@ -98,7 +98,5 @@ Time: <select name=time>
 </center>
 </body>
 </html>
-
-
 
 
