@@ -18,7 +18,7 @@ public class Event {
     eventDescription = description;
     eventID = ID;
 
-    wall = new Wall();
+    wall = new Wall(ID);
     guestList = new ArrayList<User>();
   }
 	

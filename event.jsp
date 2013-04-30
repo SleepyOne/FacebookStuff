@@ -1,23 +1,58 @@
+
 <%@ page import="facebook.Event" %>
+<%@ page import="java.util.ArrayList" %>
 
 <%
+  User curUser = (User) session.getAttibute("user");
   Event curEvent = (Event) session.getAttribute("event");
-  if (curEvent != null)
+  if (curUser != null)
   {
+    if (curEvent != null)
+    {
 %>
-    <jsp:include page="menu2.jsp" />
+      <jsp:include page="menu2.jsp" />
+<%  
+    }
+    else
+    {
+%>
+      <jsp:forward page="home.jsp" />
 <%
+    }
   }
   else
   {
 %>
-    <jsp:forward page="home.jsp" />
+    <jsp:forward page="login.jsp" />
 <%
   }
 %>
 
 <html>
 <body>
+
+<%
+  if (curUser.getEventsJoined().contains(curEvent))
+  {
+%>
+    <form action="leaveEvent.jsp" method=get>
+
+      <input type=submit name=submit value="Leave Event" />
+
+    </form>
+<%
+  }
+  else
+  {
+%>
+    <form action="attendEvent.jsp" method=get>
+
+      <input type=submit name=submit value="Attend Event" />
+
+    </form>
+<%
+  }
+%>
 
 <br/>
 <br/>

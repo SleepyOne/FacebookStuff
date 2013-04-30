@@ -1,17 +1,27 @@
 <%@ page import="facebook.Group" %>
 
 <%
+  User curUser = (User) session.getAttribute("user");
   Group curGroup = (Group) session.getAttribute("group");
-  if (curGroup != null)
+  if (curUser != null)
   {
+    if (curGroup != null)
+    {
 %>
-    <jsp:include page="menu2.jsp" />
+      <jsp:include page="menu2.jsp" />
 <%
+    }
+    else
+    {
+%>
+      <jsp:forward page="home.jsp" />
+<%
+    }
   }
   else
   {
 %>
-    <jsp:forward page="home.jsp" />
+    <jsp:forward page="login.jsp" />
 <%
   }
 %>
@@ -27,14 +37,38 @@
 %>
 
 <br/>
+<br/>
 
 <%
+  if (curUser.getGroupsJoined().contains(curGroup))
+  {
+%>
+    <form action="leaveGroup.jsp" method=get>
+
+      <input type=submit name=submit value="Leave Group" />
+
+    </form>
+<%
+  }
+  else
+  {
+%>
+    <form action="joinGroup.jsp" method=get>
+
+      <input type=submit name=submit value="Join Group" />
+
+    </form>
+
+<br/>
+<br/>
+
+<%
+  }
+
   out.println(curGroup.getDescription());
 %>
 
 </body>
 </html>
-
-
 
 

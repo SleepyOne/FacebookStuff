@@ -16,7 +16,7 @@ public class Profile
   Profile (User owner)
   {
     this.owner = owner;
-    wall = new Wall();
+    wall = new Wall(owner.getEmail());
 
     hobbies = new ArrayList<String>();
     friendRequests = new ArrayList<String>();

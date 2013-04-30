@@ -2,6 +2,8 @@
 <%@ page import="facebook.User" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="facebook.Profile" %>
+<%@ page import="facebook.Wall" %>
+<%@ page import="facebook.WallPost" %>
 
 
 <html>
@@ -32,7 +34,7 @@
 <br/>
 <br/>
 
-<form action="changeProfilePic.jsp" method=get>
+<form action="changeProfilePic.jsp" method=get enctype="multipart/form-data">
 
   <input type=file name=picture />
   <input type=submit name=submit value="Submit" />
@@ -41,6 +43,13 @@
 
   <br/>
   <br/>
+
+<form action="makePost.jsp" method=get>
+
+  <input type=text size=75 name=post />
+  <input type=submit name=submit value="Post" />
+
+</form>
 
 <%
   Profile curProfile = curUser.getProfile();

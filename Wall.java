@@ -7,10 +7,12 @@ public class Wall
 {
 
   private ArrayList<WallPost> wallPosts;
+  private String owner;
 
 
-  public Wall ()
+  public Wall (String owner)
   {
+    this.owner = owner;
     wallPosts = new ArrayList<WallPost>();
   }
 

@@ -1,12 +1,17 @@
+
+<%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="facebook.User" %>
 <%@ page import="facebook.Profile" %>
 
 <%
-  User curUser = session.getAttribute("user");
+  MultipartRequest mpr = new MultipartRequest(request,
+    "/home/hwilsey/tomcat/webapps/hw7/facebookFiles/profilePics");
 
-  String picName = request.getOriginalFileName("picture");
+  User curUser = (User) session.getAttribute("user");
 
-  curUser.getProfile().setPicture(picName);
+  String picName = mpr.getOriginalFileName("picture");
+
+  curUser.getProfile().setPicture("profilePics/" + picName);
 %>
 
 <jsp:forward page="profile.jsp" />

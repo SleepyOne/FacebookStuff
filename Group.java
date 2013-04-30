@@ -16,7 +16,7 @@ public class Group
     groupName = name;
     groupDescription = description;
 
-    wall = new Wall();
+    wall = new Wall(groupName);
     memberList = new ArrayList<User>();
   }
 	
