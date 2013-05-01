@@ -53,6 +53,12 @@ public class Event {
   }
 
 
+  public String getID()
+  {
+    return eventID;
+  }
+
+
   public void addGuest(User user)
   {
     if (guestList.contains(user) == false)

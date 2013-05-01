@@ -5,8 +5,9 @@
 
 <%
   User curUser = (User) session.getAttribute("user");
+  User userToRequest = (User) session.getAttribute("userBeingViewed");
 
-  // Need to do a User friend to add = session.getParameter()
-  // But what parameter would I get?
-
+  userToRequest.getProfile().addFriendRequest(curUser);
 %>
+
+<jsp:forward page="profile2.jsp" />

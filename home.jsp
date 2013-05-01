@@ -1,9 +1,28 @@
 
-<jsp:include page="menu2.jsp" />
+<%@ page import="facebook.User" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="facebook.Event" %>
 
 
 <html>
 <body>
+
+<%
+  User curUser = (User) session.getAttribute("user");
+  if (curUser != null)
+  {
+%>
+    <jsp:include page="menu2.jsp" />
+<%
+  }
+  else
+  {
+%>
+    <jsp:forward page="login.jsp" />
+<%
+  }
+%>
+
 <center>
 
 <br/>
@@ -26,12 +45,20 @@
 
 </form>
 
+<br/>
+<br/>
 </center>
 
+<%
+  ArrayList<Event> events = curUser.getEventsJoined();
 
+  out.println("<font size=4><b>Events:</b></font><br/>");
 
-
-
+  for (int i = 0; i < events.size(); i++)
+  {
+    out.println("<a href='viewEventController.jsp?ID=" + events.get(i).getID() + "'>" + events.get(i).getName() + "</a><br/><br/><br/>");
+  }
+%>
 
 
 

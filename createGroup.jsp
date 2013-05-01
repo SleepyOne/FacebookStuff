@@ -23,6 +23,23 @@
 </form>
 
 </center>
+
+<br/>
+<br/>
+
+<%
+  String error = (String) session.getAttribute("error");
+
+  if (error != null)
+  {
+    out.println("<center>" + error + "</center>");
+  }
+
+  session.removeAttribute("error");
+%>
+
 </body>
 </html>
+
+
 

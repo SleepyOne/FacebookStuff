@@ -1,9 +1,10 @@
 
 <%@ page import="facebook.Event" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="facebook.User" %>
 
 <%
-  User curUser = (User) session.getAttibute("user");
+  User curUser = (User) session.getAttribute("user");
   Event curEvent = (Event) session.getAttribute("event");
   if (curUser != null)
   {
@@ -32,7 +33,7 @@
 <body>
 
 <%
-  if (curUser.getEventsJoined().contains(curEvent))
+  if (curUser.getEventsJoined() != null && curUser.getEventsJoined().contains(curEvent))
   {
 %>
     <form action="leaveEvent.jsp" method=get>
@@ -51,6 +52,14 @@
 
     </form>
 <%
+  }
+
+  out.println("<b>Guests:</b><br/>");
+  ArrayList<User> guests = curEvent.getGuests();
+
+  for (int i = 0; i < guests.size(); i++)
+  {
+    out.println("<a href='viewProfileController.jsp?email=" + guests.get(i).getEmail() +  "'>" + guests.get(i).getUserName() + "</a><br/>");
   }
 %>
 

@@ -4,6 +4,7 @@
 <%@ page import="facebook.Profile" %>
 <%@ page import="facebook.Wall" %>
 <%@ page import="facebook.WallPost" %>
+<%@ page import="facebook.Group" %>
 
 
 <html>
@@ -14,7 +15,7 @@
   if (curUser != null)
   {
 %>
-  <jsp:include page="menu2.jsp" />
+    <jsp:include page="menu2.jsp" />
 <%
   }
   else
@@ -51,18 +52,27 @@
 
 </form>
 
-<%
-  Profile curProfile = curUser.getProfile();
-
-  //if (
-
-%>
-
-
 
 <%
   out.println(curUser.getBirthday());
-  out.println("<br/> Gender: " + curUser.getGender());
+  out.println("<br/> Gender: " + curUser.getGender() + "<br/><br/>");
+  out.println("<b><font size=4> Friends: </font></b><br/>");
+
+  ArrayList<User> friends = curUser.getFriends();
+
+  for (int i = 0; i < friends.size(); i++)
+  {
+    out.println("<a href='viewProfileController.jsp?email=" + friends.get(i).getEmail() + "'>" + friends.get(i).getUserName() + "</a><br/>");
+  }
+
+  out.println("<br/><br/><font size=4><b>Groups:</b></font><br/>");
+
+  ArrayList<Group> groups = curUser.getGroupsJoined();
+
+  for (int i = 0; i < groups.size(); i++)
+  {
+    out.println("<a href='viewGroupController.jsp?name=" + groups.get(i).getName() + "'>" + groups.get(i).getName() + "</a><br/><br/>");
+  }
 %>
 
   <br/>

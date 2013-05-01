@@ -25,6 +25,8 @@ public class User
 
     friends = new ArrayList<User>();
     newsfeed = new ArrayList<WallPost>();
+    groupsJoined = new ArrayList<Group>();
+    eventsJoined = new ArrayList<Event>();
   }
 
 

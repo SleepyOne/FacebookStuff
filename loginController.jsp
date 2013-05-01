@@ -10,7 +10,12 @@
 
   if (user == null)
   {
-    out.println("<br/><br/><center>" + "Invalid email or password! <br/><br/>" + "<a href='http://rosemary.umw.edu:54020/hw7/login.jsp'>Login</a></center>" );
+//    out.println("<br/><br/><center>" + "Invalid email or password! <br/><br/>" + "<a href='http://rosemary.umw.edu:54020/hw7/login.jsp'>Login</a></center>" );
+
+    session.setAttribute("error", "Invalid email or password!");
+%>
+    <jsp:forward page="login.jsp" />
+<%
   }
   else
   {
@@ -25,8 +30,12 @@
 <%  }
     else
     {
-    out.println("<br/><br/><center>" + "Invalid email or password! <br/><br/>" + "<a href='http://rosemary.umw.edu:54020/hw7/login.jsp'>Login</a></center>" );
+//    out.println("<br/><br/><center>" + "Invalid email or password! <br/><br/>" + "<a href='http://rosemary.umw.edu:54020/hw7/login.jsp'>Login</a></center>" );
 
+      session.setAttribute("error", "Invalid email or password!");
+%>
+      <jsp:forward page="login.jsp" />
+<%
     }
   }
 %>

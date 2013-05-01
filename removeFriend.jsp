@@ -5,8 +5,10 @@
 
 <%
   User curUser = (User) session.getAttribute("user");
+  User userToRemove = (User) session.getAttribute("userBeingViewed");
 
-  // Need to figure out what user I'm removing from the curUser's list
-  // When you go to someone's profile, set a session attribute for "beingViewed"
-
+  curUser.getFriends().remove(userToRemove);
+  userToRemove.getFriends().remove(curUser);
 %>
+
+<jsp:forward page="profile2.jsp" />

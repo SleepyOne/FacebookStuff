@@ -40,7 +40,7 @@
   {
     if (name.equalsIgnoreCase(users.get(i).getUserName()))
     {
-      out.println(users.get(i).getUserName() + "<br/>");
+      out.println("<a href='viewProfileController.jsp?email=" + users.get(i).getEmail() + "'>" + users.get(i).getUserName() + "</a><br/>");
       numResults++;
     }
   }

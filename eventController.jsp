@@ -5,11 +5,25 @@
 <%
 
   String name = request.getParameter("name");
+  if (name == null || name == "")
+  {
+    session.setAttribute("error", "Please fill in all text fields.");
+%>
+    <jsp:forward page="createEvent.jsp" />
+<%
+  }
+  String description = request.getParameter("description");
+  if (description == null || description == "")
+  {
+    session.setAttribute("error", "Please fill in all text fields.");
+%>
+    <jsp:forward page="createEvent.jsp" />
+<%
+  }
   String month = request.getParameter("month");
   String day = request.getParameter("day");
   String hour = request.getParameter("hour");
   String timeOfDay = request.getParameter("timeOfDay");
-  String description = request.getParameter("description");
 
 
   String date = month.concat(" ");

@@ -8,7 +8,7 @@ public class Profile
 
   private Wall wall;
   private ArrayList<String> hobbies;
-  private ArrayList<String> friendRequests;
+  private ArrayList<User> friendRequests;
   private User owner;
   private String picture;
 
@@ -19,7 +19,7 @@ public class Profile
     wall = new Wall(owner.getEmail());
 
     hobbies = new ArrayList<String>();
-    friendRequests = new ArrayList<String>();
+    friendRequests = new ArrayList<User>();
 
     picture = null;
   }
@@ -58,21 +58,27 @@ public class Profile
   }
 
 
-  public void addFriendRequest (String username)
+  public void addFriendRequest (User user)
   {
-    if (friendRequests.contains(username) == false)
+    if (friendRequests.contains(user) == false)
     {
-      friendRequests.add(username);
+      friendRequests.add(user);
     }
   }
 
 
-  public void removeFriendRequest (String username)
+  public void removeFriendRequest (User user)
   {
-    if (friendRequests.contains(username) == true)
+    if (friendRequests.contains(user) == true)
     {
-      friendRequests.remove(username);
+      friendRequests.remove(user);
     }
+  }
+
+
+  public ArrayList<User> getFriendRequests()
+  {
+    return friendRequests;
   }
 
 

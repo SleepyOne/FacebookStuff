@@ -8,7 +8,7 @@
 <h1>Register</h1>
 
 <center>
-<form action= "registerController.jsp" method=GET>
+<form action= "registerController.jsp" method=post>
 
 Name: <input type=text size=20 name=name />
 <br/>
@@ -162,6 +162,20 @@ Re-Enter Password: <input type=password size=20 name=password2 />
 
 </form>
 </center>
+
+<br/>
+<br/>
+
+<%
+  String error = (String) session.getAttribute("error");
+
+  if (error != null)
+  {
+    out.println("<center>" + error + "</center>");
+  }
+
+  session.removeAttribute("error");
+%>
 
 </body>
 </html>
