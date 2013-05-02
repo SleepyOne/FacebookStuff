@@ -79,8 +79,6 @@
       }
       else
       {
-//        out.println("<br/><br/><center>" + "Your passwords do not match! <br/><br/>" + "<a href='http://rosemary.umw.edu:54020/hw7/register.jsp'>Register</a></center>" );
-
         session.setAttribute("error", "Your passwords do not match.");
 %>
         <jsp:forward page="register.jsp" />
@@ -89,8 +87,6 @@
     }
     else
     {
-      //out.println("<br/><br/><center>" + "The email address you entered is invalid! <br/><br/>" + "<a href='http://rosemary.umw.edu:54020/hw7/register.jsp'>Register</a></center>" );
-
       session.setAttribute("error", "Please enter a valid email address.");
 %>
       <jsp:forward page="register.jsp" />
@@ -99,8 +95,6 @@
   }
   else
   {
-    //out.println("<br/><br/><center>" + "That email address is already taken! <br/><br/>" + "<a href='http://rosemary.umw.edu:54020/hw7/register.jsp'>Register</a></center>" );
-
     session.setAttribute("error", "The email address you entered is already taken.");
 %>
     <jsp:forward page="register.jsp" />

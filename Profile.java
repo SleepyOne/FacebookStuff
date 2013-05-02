@@ -1,6 +1,7 @@
 
 package facebook;
 import java.util.ArrayList;
+import java.io.*;
 
 
 public class Profile
@@ -22,6 +23,8 @@ public class Profile
     friendRequests = new ArrayList<User>();
 
     picture = null;
+
+    saveProfile();
   }
 
 
@@ -34,6 +37,8 @@ public class Profile
   public void setPicture(String name)
   {
     picture = name;
+
+    saveProfile();
   }
 
 
@@ -49,6 +54,7 @@ public class Profile
     {
       hobbies.add(hobby);
     }
+    saveProfile();
   }
 
 
@@ -64,6 +70,7 @@ public class Profile
     {
       friendRequests.add(user);
     }
+    saveProfile();
   }
 
 
@@ -73,6 +80,7 @@ public class Profile
     {
       friendRequests.remove(user);
     }
+    saveProfile();
   }
 
 
@@ -82,17 +90,26 @@ public class Profile
   }
 
 
-  private void save()
+  public void saveProfile()
   {
+    try
+    {
+      File file = new File(this.owner + ".profile");
+      file.createNewFile();
 
+      FileOutputStream outFile = new FileOutputStream(this.owner + ".profile" );
+      ObjectOutputStream output = new ObjectOutputStream(outFile);
+
+      output.writeObject(this);
+      output.close();
+      outFile.close();
+    }
+    catch (IOException i)
+    {
+      i.printStackTrace();
+      return;
+    }
   }
-
-
-  private void load()
-  {
-
-  }
-
 }
 
 

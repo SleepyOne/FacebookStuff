@@ -1,27 +1,47 @@
 
 package facebook;
 
+import java.util.Date;
 
-public class WallPost
+
+public class WallPost implements Comparable<WallPost>
 {
 
-  private String author, date, text;
+  private String text, ID, postTarget;
+  private User author;
+  private Date date;
+  private static int numPosts = 0;
 
 
-  public WallPost(String author, String text)
+  public WallPost(User author, String text, String ID, String postTarget)
   {
     this.author = author;
     this.text = text;
+    this.ID = ID;
+    this.postTarget = postTarget;
+    date = new Date();
   }
 
 
-  public String getAuthor()
+  public static int getNumPosts()
+  {
+    return numPosts;
+  }
+
+
+  public String getID()
+  {
+    return ID;
+  }
+
+
+  public User getAuthor()
   {
     return author;
   }
 
 
-  public String getDate()
+  public Date getDate()
   {
     return date;
   }
@@ -35,7 +55,7 @@ public class WallPost
 
   public int compareTo(WallPost post)
   {
-    return 0;
+    return getDate().compareTo(post.getDate());
   }
 
 }

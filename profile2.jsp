@@ -5,6 +5,8 @@
 <%@ page import="facebook.Wall" %>
 <%@ page import="facebook.WallPost" %>
 <%@ page import="facebook.Group" %>
+<%@ page import="java.util.Collections" %>
+
 
 
 <html>
@@ -81,15 +83,21 @@
     </form>
 <%
   }
+
+  if (curUser.getFriends().contains(beingViewed))
+  {
 %>
 
-
-<form action="makePost.jsp" method=get>
+<form action="makeProfile2Post.jsp" method=get>
 
   <input type=text size=75 name=post />
   <input type=submit name=submit value="Post" />
 
 </form>
+
+<%
+  }
+%>
 
 <br/>
 <br/>
@@ -99,31 +107,63 @@
   out.println(beingViewed.getBirthday());
   out.println("<br/> Gender: " + beingViewed.getGender() + "<br/><br/>");
 
-  out.println("<b><font size=4> Friends: </font></b><br/>");
-
-  ArrayList<User> friends = beingViewed.getFriends();
-
-  for (int i = 0; i < friends.size(); i++)
+  if (curUser.getFriends().contains(beingViewed))
   {
-    out.println("<a href='viewProfileController.jsp?email=" + friends.get(i).getEmail() + "'>" + friends.get(i).getUserName() + "</a><br/>");
-  }
+    out.println("<b><font size=4>Wall Posts</font></b><br/><br/>");
 
-  out.println("<br/><br/><font size=4><b>Groups:</b></font><br/>");
+    ArrayList<WallPost> posts = beingViewed.getProfile().getWall().getWallPosts();
 
-  ArrayList<Group> groups = beingViewed.getGroupsJoined();
+    Collections.sort(posts);
+    Collections.reverse(posts);
 
-  for (int i = 0; i < groups.size(); i++)
-  {
-    out.println("<a href='viewGroupController.jsp?name=" + groups.get(i).getName() + "'>" + groups.get(i).getName() + "</a><br/><br/>");
-  }
+    int numPosts = (10 < posts.size() ? 10 : posts.size());
 
-  out.println("<b>Hobbies</b><br/>");
+    for (int i = 0; i < numPosts; i++)
+    {
+      out.println("<a href='viewProfileController.jsp?email=" + posts.get(i).getAuthor().getEmail() + "'>" + posts.get(i).getAuthor().getUserName() + "</a><br/>");
+      out.println(posts.get(i).getText() + "<br/>");
+      out.println("   " + posts.get(i).getDate());
 
-  ArrayList<String> hobbies = beingViewed.getProfile().getHobbies();
+      if (posts.get(i).getAuthor() == curUser )
+      {
+        out.println("<a href='deleteProfile2Post.jsp?ID=" + posts.get(i).getID() + "'>");
 
-  for (int i = 0; i < hobbies.size(); i++)
-  {
-    out.println(hobbies.get(i) + "<br/>");
+        out.println("<img src='http://www.prideangel.com/media/images/button-delete.gif' width=14 height=14 alt='Delete' />");
+
+        out.println("</a><br/><br/><br/>");
+      }
+      else
+      {
+        out.println("<br/><br/><br/>");
+      }
+    }  
+
+    out.println("<b><font size=4> Friends: </font></b><br/>");
+
+    ArrayList<User> friends = beingViewed.getFriends();
+
+    for (int i = 0; i < friends.size(); i++)
+    {
+      out.println("<a href='viewProfileController.jsp?email=" + friends.get(i).getEmail() + "'>" + friends.get(i).getUserName() + "</a><br/>");
+    }
+
+    out.println("<br/><br/><font size=4><b>Groups:</b></font><br/>");
+
+    ArrayList<Group> groups = beingViewed.getGroupsJoined();
+
+    for (int i = 0; i < groups.size(); i++)
+    {
+      out.println("<a href='viewGroupController.jsp?name=" + groups.get(i).getName() + "'>" + groups.get(i).getName() + "</a><br/><br/>");
+    }
+
+    out.println("<br/><br/><b>Hobbies</b><br/>");
+
+    ArrayList<String> hobbies = beingViewed.getProfile().getHobbies();
+
+    for (int i = 0; i < hobbies.size(); i++)
+    {
+      out.println(hobbies.get(i) + "<br/>");
+    }
   }
 %>
 

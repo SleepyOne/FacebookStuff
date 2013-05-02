@@ -8,7 +8,7 @@
 
   Event eventToView = Repository.instance().getEvent(ID);
 
-  session.setAttribute("curEvent", eventToView);
+  session.setAttribute("event", eventToView);
 %>
 
 <jsp:forward page="event.jsp" />

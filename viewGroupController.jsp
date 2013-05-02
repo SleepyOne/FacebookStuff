@@ -8,7 +8,7 @@
 
   Group groupToView = Repository.instance().getGroup(name);
 
-  session.setAttribute("curGroup", groupToView);
+  session.setAttribute("group", groupToView);
 %>
 
 <jsp:forward page="group.jsp" />

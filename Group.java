@@ -1,6 +1,7 @@
 
 package facebook;
 import java.util.ArrayList;
+import java.io.*;
 
 
 public class Group
@@ -18,6 +19,8 @@ public class Group
 
     wall = new Wall(groupName);
     memberList = new ArrayList<User>();
+
+    saveGroup();
   }
 	
 		
@@ -45,6 +48,7 @@ public class Group
     {
       memberList.add(user);
     }
+    saveGroup();
   }
 	
 	
@@ -54,6 +58,7 @@ public class Group
     {
       memberList.remove(user);
     }
+    saveGroup();
   }
 
 
@@ -63,17 +68,26 @@ public class Group
   }
 
 
-  private void save()
+  public void saveGroup()
   {
+    try
+    {
+      File file = new File(this.groupName + ".group");
+      file.createNewFile();
 
+      FileOutputStream outFile = new FileOutputStream(this.groupName + ".group");
+      ObjectOutputStream output = new ObjectOutputStream(outFile);
+
+      output.writeObject(this);
+      output.close();
+      outFile.close();
+    }
+    catch (IOException i)
+    {
+      i.printStackTrace();
+      return;
+    }
   }
-
-
-  private void load()
-  {
-
-  }
-
 }
 
 

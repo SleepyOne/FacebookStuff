@@ -1,6 +1,7 @@
 
 package facebook;
 import java.util.ArrayList;
+import java.io.*;
 
 
 public class Event {
@@ -20,6 +21,8 @@ public class Event {
 
     wall = new Wall(ID);
     guestList = new ArrayList<User>();
+
+    saveEvent();
   }
 	
 
@@ -65,6 +68,7 @@ public class Event {
     {
       guestList.add(user);
     }
+    saveEvent();
   }
 	
 		
@@ -80,6 +84,7 @@ public class Event {
     {
       guestList.remove(user);
     }
+    saveEvent();
   }
 	
 	
@@ -95,16 +100,25 @@ public class Event {
   }
 
 
-  private void save()
+  public void saveEvent()
   {
+    try
+    {
+      File file = new File(this.eventID + ".event");
+      file.createNewFile();
 
+      FileOutputStream outFile = new FileOutputStream(this.eventID + ".event");
+      ObjectOutputStream output = new ObjectOutputStream(outFile);
+
+      output.writeObject(this);
+      output.close();
+      outFile.close();
+    }
+    catch (IOException i)
+    {
+      i.printStackTrace();
+      return;
+    }
   }
-
-
-  private void load()
-  {
-
-  }
-
 }
 

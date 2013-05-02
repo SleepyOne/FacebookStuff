@@ -1,6 +1,7 @@
 
 package facebook;
 import java.util.ArrayList;
+import java.io.*;
 
 
 public class User
@@ -27,6 +28,8 @@ public class User
     newsfeed = new ArrayList<WallPost>();
     groupsJoined = new ArrayList<Group>();
     eventsJoined = new ArrayList<Event>();
+
+    saveUser();
   }
 
 
@@ -96,19 +99,13 @@ public class User
   }
 	
 	
-  public void makeWallPost(String text)
-  {
-    //WallPost post = new WallPost(name, text);
-    
-  }
-	
-	
   public void addFriend(User user)
   {
     if (friends.contains(user) == false)
     {
       friends.add(user);
     }
+    saveUser();
   }
 	
 	
@@ -118,6 +115,7 @@ public class User
     {
       friends.remove(user);
     }
+    saveUser();
   }
 
 
@@ -127,8 +125,10 @@ public class User
   }
 	
 	
-  public java.util.ArrayList<WallPost> getNewsfeed()
+  public ArrayList<WallPost> getNewsfeed()
   {
+    
+
     return newsfeed;
   }
 
@@ -136,12 +136,16 @@ public class User
   public void addGroup(Group group)
   {
     groupsJoined.add(group);
+ 
+    saveUser();
   }
 
 
   public void removeGroup(Group group)
   {
     groupsJoined.remove(group);
+
+    saveUser();
   }
 
 
@@ -154,12 +158,16 @@ public class User
   public void addEvent(Event event)
   {
     eventsJoined.add(event);
+
+    saveUser();
   }
 
 
   public void removeEvent(Event event)
   {
     eventsJoined.remove(event);
+
+    saveUser();
   }
 
 
@@ -169,17 +177,26 @@ public class User
   }
 
 
-  private void save()
+  public void saveUser()
   {
+    try
+    {
+      File file = new File(this.emailAddress + ".user");
+      file.createNewFile();
 
+      FileOutputStream outFile = new FileOutputStream(this.emailAddress + ".user");
+      ObjectOutputStream output = new ObjectOutputStream(outFile);
+
+      output.writeObject(this);
+      output.close();
+      outFile.close();
+    }
+    catch (IOException i)
+    {
+      i.printStackTrace();
+      return;
+    }
   }
-
-
-  private void load()
-  {
-
-  }
-
 }
 
 
