@@ -71,7 +71,7 @@ Released   : 20120325
 				<div id="content">
 					<div id="gallery-wrapper">
 					<center>
-					<h1>Edit Profile</h1>
+					<h1 style = "color:white;">Edit Profile</h1>
 
 						<br/>
 						<br/>

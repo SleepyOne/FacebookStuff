@@ -48,7 +48,7 @@ Released   : 20120325
 			<div id="page-bgbtm">
 				<div id="content">
 					<div id="gallery-wrapper">
-						<h1>Create Event</h1>
+						<h1 style = "color:white;">Create Event</h1>
 
 							<form action="eventController.jsp" method=GET>
 

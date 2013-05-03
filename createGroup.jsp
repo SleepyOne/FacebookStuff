@@ -57,7 +57,7 @@ Released   : 20120325
 
 					<center>
 
-					<h1>Create Group</h1>
+					<h1 style = "color:white;">Create Group</h1>
 
 					<br/>
 					<br/>
