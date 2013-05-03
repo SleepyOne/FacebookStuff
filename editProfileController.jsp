@@ -9,8 +9,8 @@
   if (name.equals(null) || name == "") {
     name = name;
   } else {
-    curUser = name;
-    curUser = session.setAttribute("user");
+    name = request.getParameter("name");
+    request.getAttribute(name);
   }
    
 %>
