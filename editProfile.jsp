@@ -82,17 +82,20 @@ Released   : 20120325
 						%>
 						<br/>
 						<br/>
-						<form action="editProfileController.jsp" method=get>
+						Want a new name? <form action="editProfileController.jsp" method=get>
 
 						  <input type=text size=25 name=name />
 						  <br/>
 						  <br/>
 						  <br/>
 						  <br/>
+						  Don't force yourself to conform to societal norms! Be whatever you feel like.<br/>
 						  <input type=radio name=gender value=Male />Male
 						  <input type=radio name=gender value=Female />Female
 						  <br/>
 						  <br/>
+						  <br/>
+<!--						  <br/>
 						  <br/>
 						  <br/>
 						  <select name=month>
@@ -229,7 +232,7 @@ Released   : 20120325
 						</select>
 						<br/>
 						<br/>
-
+//-->
 						<input type="submit" id="search-submit" value="Submit" />
 
 						</center>
